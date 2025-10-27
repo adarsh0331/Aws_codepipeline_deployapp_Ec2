@@ -9,7 +9,7 @@ phases:
     commands:
       - echo Running tests...
       - cat package.json
-      - npm test --prefix .
+      - npm test
 artifacts:
   files:
     - '**/*'
