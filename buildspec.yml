@@ -3,19 +3,13 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing dependencies..."
-      - npm ci  # clean install from root
-
+      - echo Installing dependencies...
+      - npm install
   build:
     commands:
-      - echo "Running tests..."
-      - pwd
-      - ls -al
-      - echo "Package.json content:"
+      - echo Running tests...
       - cat package.json
-      - echo "Executing your app test file..."
-      - node app.test.js  # directly run your test file (simple & safe)
-
+      - npm test
 artifacts:
   files:
     - '**/*'
