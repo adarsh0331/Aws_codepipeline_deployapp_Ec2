@@ -4,10 +4,12 @@ phases:
   install:
     commands:
       - echo Installing dependencies...
+      - cd nodejs-app
       - npm install
   build:
     commands:
       - echo Running tests...
+      - cd nodejs-app
       - cat package.json
       - npm test
 artifacts:
