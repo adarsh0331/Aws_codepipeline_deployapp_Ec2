@@ -18,4 +18,3 @@ artifacts:
     - app.js
     - package.json
     - node_modules/**/*
-  discard-paths: yes
