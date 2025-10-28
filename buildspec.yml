@@ -13,5 +13,9 @@ phases:
       - cat package.json
 artifacts:
   files:
-    - '**/*'
+    - appspec.yml
+    - scripts/**/*       # ✅ include all deployment scripts
+    - app.js
+    - package.json
+    - node_modules/**/*
   discard-paths: yes
