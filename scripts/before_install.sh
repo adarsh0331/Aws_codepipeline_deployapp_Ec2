@@ -18,7 +18,7 @@ rm -rf /home/ec2-user/nodejsapp
 
 # Update packages safely (avoid curl conflict)
 sudo yum clean all -y
-sudo yum upgrade -y --exclude=grub2*,kernel*
+#sudo yum upgrade -y --exclude=grub2*,kernel*
 
 # Make sure only one curl package exists
 if rpm -q curl-minimal; then
