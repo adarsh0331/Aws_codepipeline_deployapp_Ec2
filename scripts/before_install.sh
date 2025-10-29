@@ -26,11 +26,11 @@ echo "Installing curl and git (curl-minimal may remain — this is safe)..."
 sudo yum install -y curl git
 
 # Install Node.js (if not already installed)
-if ! command -v node &> /dev/null
-then
-    echo "Installing Node.js 18.x from NodeSource..."
-    curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo -E bash -
-    sudo yum install -y nodejs
-fi
+#if ! command -v node &> /dev/null
+#then
+    #echo "Installing Node.js 18.x from NodeSource..."
+    #curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo -E bash -
+    #sudo yum install -y nodejs
+#fi
 
 echo "===== Before Install Completed Successfully ====="
