@@ -14,11 +14,6 @@ phases:
       # e.g., run tests:
       - npm test
 
-  build:
-    commands:
-      - echo Build started on `date`
-      - npm run build  # if you have a build step (else skip)
-
   post_build:
     commands:
       - echo Build completed on `date`
