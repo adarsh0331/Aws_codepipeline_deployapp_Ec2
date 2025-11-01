@@ -3,18 +3,29 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 20
+      nodejs: 18
     commands:
-      - echo Installing dependencies...
+      - echo Installing dependencies
       - npm install
+
+  pre_build:
+    commands:
+      - echo Pre-build checks
+      # e.g., run tests:
+      - npm test
+
   build:
     commands:
-      - echo Running tests...
-      - cat package.json
+      - echo Build started on `date`
+      - npm run build  # if you have a build step (else skip)
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      # Package or prepare artifact
+      - zip -r deploy.zip * 
+
 artifacts:
   files:
-    - appspec.yml
-    - scripts/**/*       # ✅ include all deployment scripts
-    - app.js
-    - package.json
-    - node_modules/**/*
+    - deploy.zip
+  discard-paths: yes
