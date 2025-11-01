@@ -1,11 +1,5 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-
-app.get('/', (req, res) => {
-  res.send('Hello from Node.js on EC2!');
-});
-
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
-});
+app.get('/', (req, res) => res.send('Hello from CodePipeline + CodeDeploy!'));
+app.listen(port, () => console.log(`Listening on ${port}`));
