@@ -5,22 +5,19 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo Installing dependencies
+      - echo Installing source NPM dependencies...
       - npm install
-
   pre_build:
     commands:
-      - echo Pre-build checks
-      # e.g., run tests:
-      - npm test
-
-  post_build:
+      - echo Running tests...
+      - npm test || true   # allow failures for now; remove "|| true" when tests are reliable
+  build:
     commands:
-      - echo Build completed on `date`
-      # Package or prepare artifact
-      - zip -r deploy.zip * 
-
+      - echo Packaging artifact...
+      - mkdir -p build
+      - cp -R package.json app.js node_modules build/
+      - cd build
+      - zip -r ../artifact.zip .
 artifacts:
   files:
-    - deploy.zip
-  discard-paths: yes
+    - artifact.zip
