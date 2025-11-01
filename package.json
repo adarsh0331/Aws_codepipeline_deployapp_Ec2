@@ -1,11 +1,10 @@
 {
-  "name": "nodejsapp",
+  "name": "sample-node-app",
   "version": "1.0.0",
-  "description": "Sample Node.js app for AWS CI/CD",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"No tests yet\" && exit 0"
+    "test": "node test.js"
   },
   "dependencies": {
     "express": "^4.18.2"
