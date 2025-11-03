@@ -1,16 +1,5 @@
 #!/bin/bash
 set -e
-echo "===== Application Start Script ====="
-
-cd /home/ec2-user/nodejsapp
-
-# Stop previous app
-pm2 stop all || true
-
-# Start new version
-pm2 start app.js --name nodejsapp
-
-# Save process list
-pm2 save
-
-echo "===== Application Started ====="
+cd /home/ec2-user/app
+# start app using nohup (for simplicity); production uses pm2/systemd
+nohup /usr/bin/node app.js > /home/ec2-user/app/app.log 2>&1 &
