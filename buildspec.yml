@@ -5,19 +5,22 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo Installing source NPM dependencies...
+      - echo Installing NPM dependencies...
       - npm install
+
   pre_build:
     commands:
       - echo Running tests...
-      - npm test || true   # allow failures for now; remove "|| true" when tests are reliable
+      - npm test || true
+
   build:
     commands:
-      - echo Packaging artifact...
+      - echo Packaging artifact for CodeDeploy...
       - mkdir -p build
-      - cp -R package.json app.js node_modules build/
-      - cd build
-      - zip -r ../artifact.zip .
+      # Copy everything needed for deployment
+      - cp -R app.js package.json node_modules scripts appspec.yml build/
+
 artifacts:
   files:
-    - artifact.zip
+    - build/**/*
+  discard-paths: no
