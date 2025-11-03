@@ -17,8 +17,8 @@ phases:
     commands:
       - echo Packaging artifact for CodeDeploy...
       - mkdir -p build
-      # Copy everything needed for deployment
-      - cp -R app.js package.json node_modules scripts appspec.yml build/
+      # Copy all deployment files
+      - cp -R app.js package.json node_modules appspec.yml scripts/ build/
 
 artifacts:
   files:
