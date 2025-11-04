@@ -1,8 +1,5 @@
 #!/bin/bash
-echo "Running BeforeInstall - cleaning up and setting permissions"
+echo "Running BeforeInstall - cleaning up old files"
 
-# Clear old app files
+# Clean up old deployment
 sudo rm -rf /home/ec2-user/app/*
-
-# Ensure scripts are executable
-sudo chmod +x /home/ec2-user/app/scripts/*.sh
